@@ -10,3 +10,4 @@ OpenNMT-py
 python-box
 rxnmapper 
 localmapper 
+torchdata
