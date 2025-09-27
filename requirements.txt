@@ -11,3 +11,4 @@ python-box
 rxnmapper 
 localmapper 
 torchdata<0.8
+transformers<4.50
