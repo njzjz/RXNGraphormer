@@ -1,0 +1,29 @@
+name: Test Python package
+
+on:
+  push:
+  pull_request:
+
+env:
+  UV_SYSTEM_PYTHON: 1
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+      - name: Install dependencies
+        run: |
+          uv pip install torch==2.2.1 --torch-backend=auto
+          uv pip install torch-scatter -f https://data.pyg.org/whl/torch-2.2.0+cpu.html
+          uv pip install . --torch-backend=auto
+      - name: Test
+        run: python -c 'from rxngraphormer.eval import reaction_prediction'
