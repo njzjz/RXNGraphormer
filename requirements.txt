@@ -1,7 +1,7 @@
 torch
 tqdm
 pandas
-numpy
+numpy<2
 rdkit
 torch-geometric
 scikit-learn
