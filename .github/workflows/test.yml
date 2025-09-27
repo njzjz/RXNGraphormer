@@ -22,7 +22,7 @@ jobs:
           python-version: 3.11
       - name: Install dependencies
         run: |
-          uv pip install torch~=2.2.0 --torch-backend=auto
+          uv pip install torch==2.2.1 --torch-backend=auto
           uv pip install torch-scatter -f https://data.pyg.org/whl/torch-2.2.0+cpu.html
           uv pip install . --torch-backend=auto
       - name: Test
